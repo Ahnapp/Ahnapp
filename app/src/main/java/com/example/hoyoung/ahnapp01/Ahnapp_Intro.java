@@ -4,20 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 public class Ahnapp_Intro extends Activity {
-
-
-//    public static final int setnum = 0;
-//    public static final int milisegundos = setnum*1000;
-//    public static final int delay = 2;
-//    private ProgressBar pbprogreso;
-
 
 
     @Override
@@ -26,14 +22,15 @@ public class Ahnapp_Intro extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_ahnapp_intro);
 
-        ImageView image02 = (ImageView) findViewById(R.id.imageView02);
-        ImageView image03 = (ImageView) findViewById(R.id.imageView03);
-        ImageView image04 = (ImageView) findViewById(R.id.imageView04);
+//        ImageView image02 = (ImageView) findViewById(R.id.imageView02);
+//        ImageView image03 = (ImageView) findViewById(R.id.imageView03);
+//        ImageView image04 = (ImageView) findViewById(R.id.imageView04);
 
         Animation anim01 = AnimationUtils.loadAnimation(this, R.anim.fade);
-        image02.startAnimation(anim01);
-        image03.startAnimation(anim01);
-        image04.startAnimation(anim01);
+//        image02.startAnimation(anim01);
+//        image03.startAnimation(anim01);
+//        image04.startAnimation(anim01);
+
 
 
         Handler mhandler = new Handler();
