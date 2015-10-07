@@ -22,12 +22,12 @@ public class Ahnapp_Intro extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_ahnapp_intro);
 
-//        ImageView image02 = (ImageView) findViewById(R.id.imageView02);
+        ImageView image02 = (ImageView) findViewById(R.id.imageView02);
 //        ImageView image03 = (ImageView) findViewById(R.id.imageView03);
 //        ImageView image04 = (ImageView) findViewById(R.id.imageView04);
 
         Animation anim01 = AnimationUtils.loadAnimation(this, R.anim.fade);
-//        image02.startAnimation(anim01);
+        image02.startAnimation(anim01);
 //        image03.startAnimation(anim01);
 //        image04.startAnimation(anim01);
 
