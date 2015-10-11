@@ -28,7 +28,7 @@ public class Ahnapp_Waiting extends Activity {
 
 
     private Activity mActivity;
-    private BluetoothAdapter btAdapter;
+    protected BluetoothAdapter btAdapter;
 
 
     @Override
@@ -93,8 +93,24 @@ public class Ahnapp_Waiting extends Activity {
 
 
 
-            Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(i,REQUEST_ENABLE_BT);
+            Handler mhandler = new Handler();
+            mhandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    btAdapter.enable(); //블루투스 온
+
+                    Toast toast2 = Toast.makeText(Ahnapp_Waiting.this, "블루투스 on시켰습니다!", Toast.LENGTH_SHORT);
+                    toast2.show();
+
+                }
+            }, 15000); //15초후 bluetooth on!
+
+
+
+
+//            Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//            startActivityForResult(i,REQUEST_ENABLE_BT);
         }
     }
 }
