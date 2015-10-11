@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
@@ -81,18 +82,28 @@ public class Ahnapp_Waiting extends Activity {
             Log.d(TAG, "Bluetooth Enable Now");
 
         } else{
+
             //기기의 블루투스 상태가 off인 경우 - 개선사항
             Toast toast = Toast.makeText(this,"블루투스 off된 경우", Toast.LENGTH_SHORT);
             toast.show();
-
             Log.d(TAG, "Bluetooth Enable Request");
 
-//            btAdapter.enable(); //블루투스 온
-//            Toast toast2 = Toast.makeText(this,"블루투스 on시켰습니다!", Toast.LENGTH_SHORT);
-//            toast2.show();
+
+            Button button01 = (Button)findViewById(R.id.button01);
+
+            //bluetooth가 on되어 있을 때와 구분하기 위함
+            button01.setVisibility(View.VISIBLE);
+
+            //button 클릭시 앱 종료
+            button01.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }
+            });
 
 
-
+            //10초후 아무런 touch없으면 bluetooth on!
             Handler mhandler = new Handler();
             mhandler.postDelayed(new Runnable() {
                 @Override
@@ -100,19 +111,15 @@ public class Ahnapp_Waiting extends Activity {
 
                     btAdapter.enable(); //블루투스 온
 
-                    Toast toast2 = Toast.makeText(Ahnapp_Waiting.this, "블루투스 on시켰습니다!", Toast.LENGTH_SHORT);
-                    toast2.show();
+                    Toast toast = Toast.makeText(Ahnapp_Waiting.this, "블루투스 on시켰습니다!", Toast.LENGTH_SHORT);
+                    toast.show();
 
                 }
-            }, 15000); //15초후 bluetooth on!
+            }, 10000);
 
-
-
-
-//            Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-//            startActivityForResult(i,REQUEST_ENABLE_BT);
         }
     }
+
 }
 
 
